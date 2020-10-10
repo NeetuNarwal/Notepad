@@ -29,20 +29,22 @@
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
         'open file
+        dim bln as boolean
         OpenFileDialog1.InitialDirectory = "E:\\bca"
         OpenFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         OpenFileDialog1.ShowDialog()
-        RichTextBox1.LoadFile(OpenFileDialog1.FileName, RichTextBoxStreamType.PlainText)
-
+        bln=RichTextBox1.LoadFile(OpenFileDialog1.FileName, RichTextBoxStreamType.PlainText)
+        if bln=true then messagebox.show("File have been successfully uploaded","Notepad")
     End Sub
 
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
         'save file
+            dim bln as boolean
         SaveFileDialog1.InitialDirectory = "E:\\bca"
         SaveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
         SaveFileDialog1.ShowDialog()
-        RichTextBox1.SaveFile(SaveFileDialog1.FileName, RichTextBoxStreamType.PlainText)
-        MessageBox.Show("File have been saved")
+        bln=RichTextBox1.SaveFile(SaveFileDialog1.FileName, RichTextBoxStreamType.PlainText)
+            if bln=true then MessageBox.Show("File have been saved")
     End Sub
 
     Private Sub Button11_Click(sender As System.Object, e As System.EventArgs) Handles Button11.Click
